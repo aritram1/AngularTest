@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+    <script src="lib\angular.min.js"></script>
+    <script src="main.js"></script>
+</HEAD>
+
+<BODY ng-app="my-app">
+    <div ng-controller="my-controller">
+        <!-- to add characters-->
+        <div ng-show="addblock">
+            <p>First Name : <input type="text" ng-model="inputfn"/></p>
+            <p>Last Name : <input type="text" ng-model="inputln"/></p>
+            <p><input type="button" value="Add Person" ng-click="addthem"/></p>
+        </div>
+        
+        <!-- to show elements -->
+        <div ng-show="showblock">
+            Search Text : <input type="text" ng-model="inputstring"/>
+            <table>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+                <tr ng-repeat="contact in Contacts | filter:inputstring">
+                    <td> {{contact.firstname}}  </td>
+                    <td> {{contact.lastname}}   </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</BODY>
+</HTML>
